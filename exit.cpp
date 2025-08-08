@@ -17,12 +17,13 @@ int main(){
                 cout<<"don't break\n";
                 break;
         case 2: 
-                cout<<"break the loop ";
+                cout<<"End the program ";
                 exit(0); // exit the whole program immediately
 
         default :
                 cout<<"this is the default case";
     }
     }
+    cout<<"print after the loop";
 }
 
