@@ -1,4 +1,4 @@
-#inlcude<iostream>
+#include<iostream>
 using namespace std;
 
 int main(){
@@ -14,5 +14,29 @@ int main(){
     cout<<"Enter the operater you want to perform"<<endl;
     cin>> op;
 
-    switch
+    switch (op)
+    {
+    case '+' :
+        cout<<a+b;
+        break;
+
+    case '-' :
+        cout<<a-b;
+        break;
+    
+    case '*' :
+        cout<<a*b;
+        break;
+
+    case '/' :
+        cout<<a/b;
+        break;
+
+    case '%' :
+        cout<<a%b;
+        break;
+    
+    default:
+        cout<<"invalid opration";
+    }
 }
