@@ -21,7 +21,7 @@ using namespace std;
 
 int main(){
     
-    vector<int> arr={5,3,6,8,9,2};
+    vector<int> arr={5,13,6,1,2,2};
     int n=arr.size();
     vector<int> SortedArr = selectionSorting(arr,n);
     cout<<"{";
