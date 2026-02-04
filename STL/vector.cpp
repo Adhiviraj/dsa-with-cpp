@@ -9,7 +9,7 @@ int main()
 {
     vector<int> b(5,1);
     cout<<"print n"<<endl;
-    for(int i:a){
+    for(int i:b){
         cout<<i<<" "<<endl;
     }
     vector<int> a;
