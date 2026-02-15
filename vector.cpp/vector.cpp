@@ -145,22 +145,24 @@ int main()
     }
     cout << endl << endl;
 
+    vector<int> t = {3,5,3,2,6};
+
     // -------------------------------
     // 1️⃣1️⃣ sort() & reverse()
     // -------------------------------
 
-    sort(a.begin(), a.end());
+    sort(t.begin(), t.end());
 
     cout << "After sort:" << endl;
-    for (int i : a) {
+    for (int i : t) {
         cout << i << " ";
     }
     cout << endl;
 
-    reverse(a.begin(), a.end());
+    reverse(t.begin(), t.end());
 
     cout << "After reverse:" << endl;
-    for (int i : a) {
+    for (int i : t) {
         cout << i << " ";
     }
     cout << endl << endl;  
