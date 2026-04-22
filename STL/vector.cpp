@@ -48,7 +48,7 @@ int main()
 
 cout<<"before clear size :- "<<a.size()<<endl;
 a.clear();
-cout<<"after clear size :- "<<a.size()<<endl;
+cout<<"after clear size :- "<<a.size()<<endl; 
 
 }
    
