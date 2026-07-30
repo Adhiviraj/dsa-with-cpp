@@ -2,13 +2,27 @@
 using namespace std;
 
 class Node {
-    public:
+public:
     int data;
     Node* next;
-// constructor 
-    Node(int data){
-        this -> data = data;
-        this -> next = NULL;
+
+    // Constructor
+    Node(int data) {
+        this->data = data;
+        this->next = NULL;
+    }
+
+    // Destructor
+    ~Node() {
+        int value = this->data;
+
+        // Free the next node recursively
+        if (this->next != NULL) {
+            delete next;
+            this->next = NULL;
+        }
+
+        cout << "Memory is free for node with data " << value << endl;
     }
 };
     void InsertAtHead(Node* &head,int d){
@@ -63,6 +77,12 @@ class Node {
         cout << endl;
     }
 
+    void deleteNode(Node* &head,int postion){
+        if(postion == 1){
+            head = head->next;
+            delete head;
+        }
+    }
 
 
 int main(){
@@ -73,7 +93,7 @@ int main(){
 
     // head pointed to Node1
     Node* head = node1;
-    Node* Tail = node1;
+    Node* Tail = node1;1
 
     InsertAtHead(head, 11);
     InsertAtTail(Tail, 12);

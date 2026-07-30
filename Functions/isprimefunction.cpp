@@ -1,15 +1,19 @@
 #include<iostream>
 using namespace std;
 
-bool isprime(int n){
+bool isprime(int n) {
 
-    for(int i = 2; i<n;i++){
-        if(i%n==0){
-            // hogya divide ; not a prime number;
-            return 0;
+    if (n <= 1) {
+        return false;
+    }
+
+    for (int i = 2; i <= n / 2; i++) {
+        if (n % i == 0) {
+            return false;
         }
     }
-    return 1;
+
+    return true;
 }
 
 int main(){
