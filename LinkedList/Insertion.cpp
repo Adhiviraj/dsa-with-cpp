@@ -51,6 +51,27 @@ Node* insertAttail(Node* head, int val){
     return head;
 }
 
+Node * insertbeforeValue(Node* head,int el,int val){
+    if(head == NULL){
+        return NULL;
+    }
+
+    if(head->data == val){
+        return new Node(el,head);
+    }
+    Node* temp = head;
+    while(temp != NULL){
+        if(temp->next->data == val){
+            Node * x = new Node(el,temp->next);
+            temp->next = x;
+            break;
+        }
+        temp = temp->next;
+    }
+    return head;
+}
+
+
 Node * insertPositoin(Node* head,int el,int k){
     if(head == NULL){
         if(k == 1){
@@ -93,5 +114,6 @@ int main(){
     head = insertAthead(head,100);
     head = insertAttail(head,15);
     head = insertPositoin(head,15,4);
+    head = insertbeforeValue(head,31,100);
     print(head);
 }
