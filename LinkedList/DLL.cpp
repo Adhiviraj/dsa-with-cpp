@@ -46,7 +46,7 @@ Node* deleleHead(Node* head){
     return head;
 }
 
-Node* deletetail(Node* head){
+Node* deleteTail(Node* head){
     if(head == NULL || head->next == NULL){
         return NULL;
     }
@@ -73,21 +73,41 @@ void print(Node* head){
 // delete the kth elements in the linkedlist-->
 
 Node* KthElementdel(Node* head,int k){
-    if(k = 1 || head == NULL){
+    if(head == NULL){
         return NULL;
+    }
+
+    if(k == 1){
+        return deleleHead(head);
     }
 
     int cnt = 0;
 
-    Node* temp = head;
+    Node* kthNode = head;
 
-    while(cnt != k){
-        temp = temp->next;
+    while(kthNode != NULL){
         cnt++;
+        if(cnt == k) break;
+        kthNode = kthNode->next;
     }
-    
-    temp->next = temp->back;
-    
+    Node* prev = kthNode->back;
+    Node* front = kthNode->next;
+
+    if(prev == NULL && front == NULL){
+        return NULL;
+    }else if(prev == NULL){
+        return deleleHead(head);
+    }else if(front == NULL){
+        return deleteTail(head);
+    }
+
+    prev->next = front;
+    front->back = prev;
+
+    kthNode->next = nullptr;
+    kthNode->back = nullptr;
+    delete kthNode;
+    return head;
 }
 
 int main(){
@@ -95,7 +115,7 @@ int main(){
     vector<int> arr = {12,13,4,6};
     Node* head = convertArr2DLL(arr);
 
-    head = deletetail(head);
+    head = KthElementdel(head,4);
     print(head);
 
     return 0;
