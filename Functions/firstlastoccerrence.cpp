@@ -22,7 +22,7 @@ int firstOcc(int arr[] , int n , int key){
         }
     }
     return ans;
-}
+
 
 int lastOcc(int arr[],int n,int key){
     int s=0;
