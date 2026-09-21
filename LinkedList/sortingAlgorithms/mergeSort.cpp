@@ -26,11 +26,16 @@ public:
 };
 
 void InsertAtTail(Node* tail,int n){
-    Node temp = new Node(n);
+    Node* temp = new Node(n);
 
     tail->next = temp;
 
     tail = temp;
+}
+
+
+void ListSorting(Node* head){
+    
 }
 
 
@@ -57,5 +62,6 @@ int main(){
         InsertAtTail(tail,n);
     }
 
+    ListSorting(n1);
     
 }
