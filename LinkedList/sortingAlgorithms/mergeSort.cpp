@@ -34,27 +34,24 @@ void InsertAtTail(Node*& tail,int n){
 }
 
 Node* Merge2Sort(Node* left, Node* right){
-    int val = 0;
+    Node* head = NULL;
+
     if(left->data <= right->data){
-        val = left->data;
+        head = left;
         left = left->next;
     }else{
-        val = right->data;
+        head = right; 
         right = right->next;
     }
-    Node* temp = new Node(val);
-    Node* head = temp;
+    Node* temp = head;
     while(left != NULL && right != NULL){
-        val = 0;
         if(left->data <= right->data){
-            val = left->data;
+            temp->next = left;
             left = left->next;
         }else{
-            val = right->data;
+            temp->next = right; 
             right = right->next;
         }
-        Node* temp1 = new Node(val);
-        temp->next = temp1;
         temp = temp->next;
     }
 
@@ -63,27 +60,19 @@ Node* Merge2Sort(Node* left, Node* right){
     }else if(right != NULL){
         temp->next = right;
     }
-
     return head;
 }
 
 Node* middle(Node* head){
-    int cnt = 0;
-    Node* temp = head;
-    while(temp != NULL){
-        cnt++;
-        temp = temp->next;
-    }
+    Node* slow = head;
+    Node* fast = head;
 
-    int mid = cnt/2;
-    cnt = 0;
-    while(head != NULL){
-        cnt++;
-        if(cnt == mid){
-            return head;
-        }
-        head = head->next;
+    while(fast->next != NULL && fast->next->next != NULL){
+        slow = slow->next;
+        fast = fast->next->next;
     }
+    return slow;
+    
 }
 
 Node* ListSorting(Node* head){
