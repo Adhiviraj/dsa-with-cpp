@@ -1,5 +1,6 @@
 #include<iostream>
 #include<stack>
+#include<maths>
 using namespace std;
 
 int main(){
