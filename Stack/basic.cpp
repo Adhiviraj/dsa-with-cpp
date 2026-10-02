@@ -84,6 +84,4 @@ int main(){
     st.pop();
     cout << st.peek() << endl;
 
-
-
 }
