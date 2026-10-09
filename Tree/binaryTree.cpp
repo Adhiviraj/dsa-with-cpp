@@ -1,5 +1,5 @@
 #include<iostream>
-#include<queue>
+#include<vector>
 using namespace std;
 
 class node {
@@ -15,51 +15,42 @@ class node {
     }
 };
 
-node* buildTree(node* root){
-    cout << "Enter the data: " << endl;
-    int data;
-    cin >> data;
-    root = new node(data); 
-
-    if(data == -1){
+node* createTree(vector<int>& preorder, int& index){
+    if(preorder[index] == -1){
+        index++;
         return NULL;
     }
-
-    cout << "Enter data for inserting in left" << endl;
-    root->left = buildTree(root->left);
-    cout<<"Enter data for inserting in right" << endl;
-    root->right = buildTree(root->right);
+    node * root = new node(preorder[index]);
+    index++;
+    root->left = createTree(preorder,index);
+    root->right = createTree(preorder,index);
 
     return root;
-     
 }
 
-void levelOrderTraversal(node* root){
-    queue<node*> q;
-    q.push(root);
-
-    while(!q.empty()){
-        node* temp = q.front();
-        q.pop();
-
-        while(!q.empty()    ){
-            node* temp = q.front();
-            q.pop();
-
-            if(temp -> left){
-                
-            }
-        }
+void print(node* root){
+    if(root == NULL){
+        return ;
     }
+
+    cout<< "the node is - " << root->data << endl;
+
+    print(root->left);
+    print(root->right);
 }
+
+
 
 int main(){
+
+    vector<int> preorder = {10, -1, 20, 30, -1, 40, -1, -1, -1};
+
     node* root = NULL;
+    int index = 0;
 
-    root = buildTree(root);
+    root = createTree(preorder,index);
 
-    cout<< "Printing the level order traversal output" << endl;
-    levelOrderTraversal(root);
+    print(root);
 
     return 0;
 }
