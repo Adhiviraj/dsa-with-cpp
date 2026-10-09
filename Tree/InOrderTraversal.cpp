@@ -28,29 +28,42 @@ node* createTree(vector<int>& preorder, int& index){
     return root;
 }
 
-void print(node* root){
+// void print(node* root){
+//     if(root == NULL){
+//         return ;
+//     }
+
+//     cout<<"the node is - "<< root->data << endl;
+
+//     print(root->left);
+//     print(root->right);
+// }
+
+
+void InOrderTraversal(node * root){
     if(root == NULL){
-        return ;
+        return;
     }
 
-    cout<< "the node is - " << root->data << endl;
+    InOrderTraversal(root->left);
+    cout << root->data << " ";
+    InOrderTraversal(root->right);
 
-    print(root->left);
-    print(root->right);
 }
 
 
 
 int main(){
 
-    vector<int> preorder = {10, -1, 20, 30, -1, 40, -1, -1, -1};
-
+    vector<int> preorder = {10, 2,-1,-1, 20, 30, -1, 40, -1, -1, -1};
     node* root = NULL;
     int index = 0;
 
     root = createTree(preorder,index);
 
-    print(root);
+    // print(root);
+
+    InOrderTraversal(root);
 
     return 0;
 }
